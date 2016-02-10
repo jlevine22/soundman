@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "SoundBallView.h"
 #import "SoundManager.h"
-#import "TouchBeganGestureRecognizer.h"
 
 @interface ViewController ()
 
