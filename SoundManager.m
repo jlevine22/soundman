@@ -6,8 +6,9 @@
 //  Copyright © 2016 Josh Levine. All rights reserved.
 //
 
-#import "SoundManager.h"
 #import <AVFoundation/AVFoundation.h>
+
+#import "SoundManager.h"
 
 @implementation SoundManager
 {
@@ -40,6 +41,13 @@
     player.volume = 1.0;
     [player prepareToPlay];
     [player play];
+}
+
+- (void)stopSound {
+    if (player != nil) {
+        [player stop];
+        player = nil;
+    }
 }
 
 #pragma mark - AVAudioPlayerDelegate

@@ -35,6 +35,8 @@
 		33B1D3341C6AF87B00BBD35A /* sonar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33B1D31A1C6AF87B00BBD35A /* sonar.mp3 */; };
 		33B1D3351C6AF87B00BBD35A /* start-echo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33B1D31B1C6AF87B00BBD35A /* start-echo.mp3 */; };
 		33B1D3361C6AF87B00BBD35A /* whoosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 33B1D31C1C6AF87B00BBD35A /* whoosh.mp3 */; };
+		33B1D33A1C6B183F00BBD35A /* SoundBallView.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B1D3391C6B183F00BBD35A /* SoundBallView.m */; };
+		33B1D33E1C6B2B9100BBD35A /* TouchBeganGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B1D33D1C6B2B9100BBD35A /* TouchBeganGestureRecognizer.m */; };
 		33C9866F1C685F7300F5F450 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C9866E1C685F7300F5F450 /* main.m */; };
 		33C986721C685F7300F5F450 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C986711C685F7300F5F450 /* AppDelegate.m */; };
 		33C986751C685F7300F5F450 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C986741C685F7300F5F450 /* ViewController.m */; };
@@ -73,6 +75,10 @@
 		33B1D31A1C6AF87B00BBD35A /* sonar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sonar.mp3; path = ../../../Downloads/Sounds/sonar.mp3; sourceTree = "<group>"; };
 		33B1D31B1C6AF87B00BBD35A /* start-echo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "start-echo.mp3"; path = "../../../Downloads/Sounds/start-echo.mp3"; sourceTree = "<group>"; };
 		33B1D31C1C6AF87B00BBD35A /* whoosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = whoosh.mp3; path = ../../../Downloads/Sounds/whoosh.mp3; sourceTree = "<group>"; };
+		33B1D3381C6B183F00BBD35A /* SoundBallView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundBallView.h; sourceTree = "<group>"; };
+		33B1D3391C6B183F00BBD35A /* SoundBallView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundBallView.m; sourceTree = "<group>"; };
+		33B1D33C1C6B2B9100BBD35A /* TouchBeganGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchBeganGestureRecognizer.h; sourceTree = "<group>"; };
+		33B1D33D1C6B2B9100BBD35A /* TouchBeganGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchBeganGestureRecognizer.m; sourceTree = "<group>"; };
 		33C9866A1C685F7300F5F450 /* SoundMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoundMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C9866E1C685F7300F5F450 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		33C986701C685F7300F5F450 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -130,11 +136,20 @@
 			name = sounds;
 			sourceTree = "<group>";
 		};
+		33B1D33B1C6B188E00BBD35A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33B1D3001C6AF4B300BBD35A /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		33C986611C685F7200F5F450 = {
 			isa = PBXGroup;
 			children = (
 				33C9866C1C685F7300F5F450 /* SoundMan */,
 				33C9866B1C685F7300F5F450 /* Products */,
+				33B1D33B1C6B188E00BBD35A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,19 +164,22 @@
 		33C9866C1C685F7300F5F450 /* SoundMan */ = {
 			isa = PBXGroup;
 			children = (
-				33B1D3021C6AF86B00BBD35A /* sounds */,
 				33C986701C685F7300F5F450 /* AppDelegate.h */,
 				33C986711C685F7300F5F450 /* AppDelegate.m */,
+				33C986791C685F7300F5F450 /* Assets.xcassets */,
+				33C9867E1C685F7300F5F450 /* Info.plist */,
+				33C9867B1C685F7300F5F450 /* LaunchScreen.storyboard */,
+				33C986761C685F7300F5F450 /* Main.storyboard */,
+				33B1D3381C6B183F00BBD35A /* SoundBallView.h */,
+				33B1D3391C6B183F00BBD35A /* SoundBallView.m */,
 				33B1D2801C699AC800BBD35A /* SoundManager.h */,
 				33B1D2811C699AE300BBD35A /* SoundManager.m */,
+				33B1D3021C6AF86B00BBD35A /* sounds */,
+				33C9866D1C685F7300F5F450 /* Supporting Files */,
 				33C986731C685F7300F5F450 /* ViewController.h */,
 				33C986741C685F7300F5F450 /* ViewController.m */,
-				33C986761C685F7300F5F450 /* Main.storyboard */,
-				33C986791C685F7300F5F450 /* Assets.xcassets */,
-				33C9867B1C685F7300F5F450 /* LaunchScreen.storyboard */,
-				33C9867E1C685F7300F5F450 /* Info.plist */,
-				33B1D3001C6AF4B300BBD35A /* AVFoundation.framework */,
-				33C9866D1C685F7300F5F450 /* Supporting Files */,
+				33B1D33C1C6B2B9100BBD35A /* TouchBeganGestureRecognizer.h */,
+				33B1D33D1C6B2B9100BBD35A /* TouchBeganGestureRecognizer.m */,
 			);
 			path = SoundMan;
 			sourceTree = "<group>";
@@ -274,6 +292,8 @@
 				33B1D2821C699AE300BBD35A /* SoundManager.m in Sources */,
 				33C986721C685F7300F5F450 /* AppDelegate.m in Sources */,
 				33C9866F1C685F7300F5F450 /* main.m in Sources */,
+				33B1D33A1C6B183F00BBD35A /* SoundBallView.m in Sources */,
+				33B1D33E1C6B2B9100BBD35A /* TouchBeganGestureRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,9 +404,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SoundMan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshlevine.SoundMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -395,9 +417,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SoundMan/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshlevine.SoundMan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

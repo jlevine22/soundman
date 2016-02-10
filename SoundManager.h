@@ -14,4 +14,5 @@ typedef void(^SoundPlayedCompletion)(BOOL successful);
 @interface SoundManager : NSObject <AVAudioPlayerDelegate>
 + (SoundManager*)sharedInstance;
 - (void)playSoundFromURL:(NSURL*)url completion:(SoundPlayedCompletion)completion;
+- (void)stopSound;
 @end
