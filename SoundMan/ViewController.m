@@ -31,7 +31,13 @@
         [soundFiles addObjectsFromArray:files];
     }
     for (NSURL *soundFile in soundFiles) {
-        int size = 50 + arc4random_uniform(30);
+        int minSize = 50;
+        int sizeVariance = 30;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            minSize = 80;
+            sizeVariance = 40;
+        }
+        int size = minSize + arc4random_uniform(sizeVariance);
         CGRect bounds = [[UIScreen mainScreen] bounds];
         CGFloat x = arc4random_uniform(bounds.size.width - size);
         CGFloat y = arc4random_uniform(bounds.size.height - size);
