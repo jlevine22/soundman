@@ -10,7 +10,6 @@
 
 #import "SoundBallView.h"
 #import "SoundManager.h"
-#import "TouchBeganGestureRecognizer.h"
 
 
 @implementation SoundBallView
@@ -18,9 +17,7 @@
     CGFloat red;
     CGFloat green;
     CGFloat blue;
-    TouchBeganGestureRecognizer *gesture;
     BOOL moving;
-    NSValue *lastToValue;
 }
 @synthesize soundUrl;
 
@@ -46,12 +43,12 @@
     }
     
     CATransform3D transform = CATransform3DMakeScale(1.0, 1.0, 1.0);
-    CABasicAnimation *scaleUp = [CABasicAnimation animationWithKeyPath:@"transform"];
-    scaleUp.fromValue = [NSValue valueWithCATransform3D:fromTransform];
-    scaleUp.toValue = [NSValue valueWithCATransform3D:transform];
-    scaleUp.duration = 0.1;
+    CABasicAnimation *scaleDown = [CABasicAnimation animationWithKeyPath:@"transform"];
+    scaleDown.fromValue = [NSValue valueWithCATransform3D:fromTransform];
+    scaleDown.toValue = [NSValue valueWithCATransform3D:transform];
+    scaleDown.duration = 0.1;
     self.layer.transform = transform;
-    [self.layer addAnimation:scaleUp forKey:@"frame.size"];
+    [self.layer addAnimation:scaleDown forKey:@"frame.size"];
     
     [self move];
 }

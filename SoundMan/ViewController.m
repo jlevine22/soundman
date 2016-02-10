@@ -91,12 +91,5 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self releaseTouchedBall];
 }
-//- (IBAction)playSound:(id)sender {
-//    int index = arc4random_uniform(soundFiles.count);
-//    NSURL *url = [soundFiles objectAtIndex:index];
-//    [[SoundManager sharedInstance] playSoundFromURL:url completion:^(BOOL successful) {
-//        // Sound finished playing
-//    }];
-//}
 
 @end

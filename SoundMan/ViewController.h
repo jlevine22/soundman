@@ -9,8 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
-- (IBAction)playSound:(id)sender;
-
 @end
 
