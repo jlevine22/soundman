@@ -63,6 +63,9 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (touchedBall != nil) {
+        return;
+    }
     UITouch *touch = [touches anyObject];
     CGPoint location = [touch locationInView:self.view];
     for (UIView *view in self.view.subviews) {

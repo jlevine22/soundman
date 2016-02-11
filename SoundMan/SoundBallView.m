@@ -18,6 +18,7 @@
     CGFloat green;
     CGFloat blue;
     BOOL moving;
+    CABasicAnimation *move;
 }
 @synthesize soundUrl;
 
@@ -29,19 +30,19 @@
 }
 
 - (void)startMoving {
-    [[SoundManager sharedInstance] stopSound];
+    if (moving) {
+        return;
+    }
     moving = YES;
-    self.alpha = 1.0;
-
     [self.layer removeAllAnimations];
-    
+    [[SoundManager sharedInstance] stopSound];
+    self.alpha = 1.0;
     CATransform3D fromTransform;
     if (self.layer.presentationLayer != nil) {
         fromTransform = [(CALayer*)self.layer.presentationLayer transform];
     } else {
         fromTransform = [self.layer transform];
     }
-    
     CATransform3D transform = CATransform3DMakeScale(1.0, 1.0, 1.0);
     CABasicAnimation *scaleDown = [CABasicAnimation animationWithKeyPath:@"transform"];
     scaleDown.fromValue = [NSValue valueWithCATransform3D:fromTransform];
@@ -54,6 +55,7 @@
 }
 
 - (void)stopMoving {
+    moving = NO;
     [self.superview bringSubviewToFront:self];
     CALayer *presentationLayer = self.layer.presentationLayer;
     if (presentationLayer != nil) {
@@ -61,7 +63,6 @@
         self.layer.transform = presentationLayer.transform;
     }
     [self.layer removeAllAnimations];
-    
     CATransform3D transform = CATransform3DMakeScale(1.5, 1.5, 1.0);
     CABasicAnimation *scaleUp = [CABasicAnimation animationWithKeyPath:@"transform"];
     scaleUp.fromValue = [NSValue valueWithCATransform3D:self.layer.transform];
@@ -69,21 +70,22 @@
     scaleUp.duration = 0.1;
     self.layer.transform = transform;
     [self.layer addAnimation:scaleUp forKey:@"frame.size"];
-
     self.alpha = 0.7;
-    moving = NO;
     [[SoundManager sharedInstance] playSoundFromURL:soundUrl completion:^(BOOL successful) {
         //
     }];
 }
 
 - (void)move {
+    if (move != nil) {
+        return;
+    }
     CGRect bounds = [[UIScreen mainScreen] bounds];
     CGFloat x = -self.frame.size.width + arc4random_uniform(bounds.size.width + self.frame.size.width);
-    CGFloat y = -self.frame.size.width + arc4random_uniform(bounds.size.height + self.frame.size.width);
+    CGFloat y = -self.frame.size.height + arc4random_uniform(bounds.size.height + self.frame.size.height);
     CGPoint position = CGPointMake(x, y);
-    
-    CABasicAnimation *move = [CABasicAnimation animationWithKeyPath:@"position"];
+
+    move = [CABasicAnimation animationWithKeyPath:@"position"];
     move.fromValue = [NSValue valueWithCGPoint:self.layer.position];
     move.toValue = [NSValue valueWithCGPoint:position];
     self.layer.position = position;
@@ -94,6 +96,7 @@
 }
 
 - (void)animationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag {
+    move = nil;
     if (moving) {
         [self move];
     }
